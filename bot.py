@@ -721,12 +721,12 @@ async def main():
 
                         if is_first_half(match, league_name):
                             # HT strategies
-                            if avg_ht_goals >= 3.5 and da_rate >= 1.0 and current_time >= 1 and current_time < 6 and home_goals == 0 and away_goals == 0 and btts_ht >= 100 and over_2_5_ht == 100:
+                            if avg_ht_goals >= 4.0 and da_rate >= 1.0 and current_time >= 2 and current_time < 6 and home_goals == 0 and away_goals == 0 and btts_ht >= 100 and over_2_5_ht == 100:
                                 strategy = "⚽ +2.5 GOLS HT"
                                 msg = format_message(match, h2h_metrics, strategy, bet365_ev_id)
                                 await send_message(bot, match_id, msg, sent_matches, strategy)
 
-                            if avg_ht_goals >= 2.5 and da_rate >= 1.0 and current_time >= 1 and current_time < 6 and home_goals == 0 and away_goals == 0 and btts_ht >= 90 and over_1_5_ht == 100:
+                            if avg_ht_goals >= 3.0 and da_rate >= 1.0 and current_time >= 2 and current_time < 6 and home_goals == 0 and away_goals == 0 and btts_ht >= 90 and over_1_5_ht == 100:
                                 strategy = "⚽ +1.5 GOLS HT"
                                 msg = format_message(match, h2h_metrics, strategy, bet365_ev_id)
                                 await send_message(bot, match_id, msg, sent_matches, strategy)
@@ -765,7 +765,7 @@ async def main():
         except Exception as e:
             print(f"[ERROR] loop principal: {e}")
         
-        await asyncio.sleep(10)  # a cada 10s
+        await asyncio.sleep(7)  # a cada 10s
 
 if __name__ == "__main__":
     asyncio.run(main())
